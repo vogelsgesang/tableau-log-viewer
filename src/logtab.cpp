@@ -191,6 +191,9 @@ void LogTab::InitOneRowMenu()
 {
     using namespace ThemeUtils;
 
+    QAction *showItemDetails = new QAction(QIcon(GetThemedIcon(":/ctx-details.png")), "Show event details", this);
+    connect(showItemDetails, &QAction::triggered, [this](){ ShowItemDetails(ui->treeView->selectionModel()->selectedRows()[0]); });
+
     QAction *findPrevSelectedType = new QAction(QIcon(GetThemedIcon(":/ctx-up.png")), "Find previous event of this type", this);
     connect(findPrevSelectedType, &QAction::triggered, this, &LogTab::RowFindPrevSelectedType);
 
@@ -219,6 +222,8 @@ void LogTab::InitOneRowMenu()
     group->setExclusive(true);
 
     m_oneRowMenu = new QMenu(this);
+    m_oneRowMenu->addAction(showItemDetails);
+    m_oneRowMenu->addSeparator();
     m_oneRowMenu->addAction(m_hideSelectedEvent);
     m_oneRowMenu->addAction(m_hideSelectedType);
     m_oneRowMenu->addSeparator();
