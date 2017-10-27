@@ -202,11 +202,10 @@ void MainWindow::UpdateMenuAndStatusBar()
     // Status bar
     if (logTab == nullptr)
     {
+        m_statusBar->SetLeftLabelText("");
         m_statusBar->SetRightLabelText("¯\\_(ツ)_/¯");
-        return;
-    }
-
-    if (logTab)
+    } 
+    else
     {
         logTab->UpdateStatusBar();
     }

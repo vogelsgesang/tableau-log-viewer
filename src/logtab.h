@@ -93,6 +93,7 @@ private:
     QString m_tabPath;
 
 private slots:
+    void SelectionChanged(const QItemSelection& selected, const QItemSelection& deselected);
     void RowDoubleClicked(const QModelIndex& idx);
     void RowRightClicked(const QPoint& pos);
     void RowDiffEvents();

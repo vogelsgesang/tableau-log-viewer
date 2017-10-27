@@ -79,6 +79,8 @@ void LogTab::InitTreeView(const EventListPtr events)
             this, SLOT(RowRightClicked(QPoint)));
     connect(ui->treeView->header(), SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(HeaderRightClicked(QPoint)));
+    connect(ui->treeView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&,const QItemSelection&)),
+            this, SLOT(SelectionChanged(const QItemSelection&,const QItemSelection&)));
 }
 
 void LogTab::SetColumn(COL column, int width, bool isHidden)
@@ -582,6 +584,10 @@ void LogTab::TrimEventCount()
     {
         m_treeModel->removeRows(0, rowCount - MaxEventCount);
     }
+}
+
+void LogTab::SelectionChanged(const QItemSelection& /*selected*/, const QItemSelection& /*deselected*/) {
+    menuUpdateNeeded();
 }
 
 void LogTab::RowDoubleClicked(const QModelIndex& idx)
@@ -1180,6 +1186,14 @@ void LogTab::HeaderItemSelected(QAction *action)
 
 void LogTab::UpdateStatusBar()
 {
+    unsigned eventCount = GetTreeModel()->rowCount();
+    unsigned selectedCount = ui->treeView->selectionModel()->selectedRows().count();
+    if (selectedCount > 1) {
+       m_bar->SetLeftLabelText(QString("%1 of %2 events selected").arg(QString::number(selectedCount),QString::number(eventCount)));
+    } else {
+       m_bar->SetLeftLabelText(QString("%1 events").arg(eventCount));
+    }
+
     QString status = "";
     if (m_treeModel->HasHighlightFilters())
     {
