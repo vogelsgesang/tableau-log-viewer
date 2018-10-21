@@ -1,9 +1,7 @@
 # Tableau Log Viewer
 [![Community Supported](https://img.shields.io/badge/Support%20Level-Community%20Supported-457387.svg)](https://www.tableau.com/support-levels-it-and-developer-tools)
-
-**Master branch** | [![Travis-CI](https://img.shields.io/travis/tableau/tableau-log-viewer/master.svg?label=Linux%20build)](https://travis-ci.org/tableau/tableau-log-viewer) | [![AppVeyor](https://img.shields.io/appveyor/ci/tableau/tableau-log-viewer/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/tableau/tableau-log-viewer/branch/master)
-:--|---|---
-**Dev branch** | [![Travis-CI](https://img.shields.io/travis/tableau/tableau-log-viewer/dev.svg?label=Linux%20build)](https://travis-ci.org/tableau/tableau-log-viewer) | [![AppVeyor](https://img.shields.io/appveyor/ci/tableau/tableau-log-viewer/dev.svg?label=Windows%20build)](https://ci.appveyor.com/project/tableau/tableau-log-viewer/branch/dev)
+[![Travis-CI](https://img.shields.io/travis/tableau/tableau-log-viewer/master.svg?label=Linux%20build)](https://travis-ci.org/tableau/tableau-log-viewer)
+[![AppVeyor](https://img.shields.io/appveyor/ci/tableau/tableau-log-viewer/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/tableau/tableau-log-viewer/branch/master)
 
 Tableau Log Viewer is cross-platform tool with a simple interface that has a single purpose of making it easy to quickly glance over Tableau log files.
 
